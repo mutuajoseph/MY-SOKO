@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container" style="margin-top: 2rem">
+    <div class="d-flex justify-content-end">
+        <a href="/upload-data" class="btn btn-primary">Load new product set</a>
+        <a href="/add-product" class="btn btn-primary" style="margin-left: 1rem;">Add new Product</a>
+    </div>
+
+    <table id="table_id" class="table my-4">
+        <thead>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product quantity</th>
+                <th scope="col">Buying Price</th>
+                <th scope="col">Selling Price</th>
+                <th scope="col">Profit</th>
+                <th scope="col">Percentage profit</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if products|length > 0 %}
+            {% for each in products %}
+            <tr>
+                <td>{{each.product_name}}</td>
+                <td>{{each.quantity}}</td>
+                <td>KES {{each.buying_price}}</td>
+                <td>KES {{each.selling_price}}</td>
+                <td>KES {{each.profit}}</td>
+                <td>{{each.percentage_profit}}%</td>
+                <td>
+                    <!-- update -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal{{each.id}}">
+                        Update Product
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{each.id}}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/update/{{ each.id }}" method="post">
+                                        <div class="form-group">
+                                            <label for="fullName">Product Name</label>
+                                            <input value="{{ each.product_name }}" type="text" name="product_name"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fullName">Quantity</label>
+                                            <input value="{{ each.quantity }}" type="text" name="quantity"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="buying_price">Buying Price</label>
+                                            <input value="{{ each.buying_price }}" type="number" name="buying_price"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Selling Price</label>
+                                            <input value="{{ each.selling_price }}" type="number" name="selling_price"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Profit</label>
+                                            <input disabled value="{{ each.profit }}" type="number" name="profit"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Percentage Profit</label>
+                                            <input disabled value="{{ each.percentage_profit }}" type="number"
+                                                name="percentage_profit" class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- delete -->
+                    <a href="{{url_for('deleteProduct', id= each.id)}}"><button type="button"
+                            class="btn btn-danger">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            {% else %}
+
+            <tr>
+                No data to be presented
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

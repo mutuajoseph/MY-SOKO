@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form style="width: 500px; margin: 2rem auto;" method="post" action="/upload-data" enctype=multipart/form-data>
+
+    <h4>Choose a file of choice to load data</h4>
+
+    <div class="my-4">
+        <p style="color: red; font-weight: 700; font-size: 12px;">accepts only .json, .xml, and .csv file extensions</p>
+        <input class="" type=file name=file>
+        <input class="btn btn-primary" type=submit value=Upload> 
+    </div>
+</form>
+
+{% endblock %}
