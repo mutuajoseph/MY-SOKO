@@ -24,8 +24,8 @@ from models.product import Product
 
 @app.before_first_request
 def create():
-    # db.create_all()
-    db.drop_all()
+    db.create_all()
+    # db.drop_all()
 
 @app.route('/add-product', methods=["GET", "POST"])
 def add_product():
