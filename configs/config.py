@@ -21,7 +21,7 @@ class Staging(Base):
     SQLALCHEMY_DATABASE_URI = ""
 
 class Production(Base):
-    DATABASE = ""
-    POSTGRES_USER = ""
-    POSTGRES_PASSWORD = ""
-    SQLALCHEMY_DATABASE_URI= ""
+    DATABASE = os.environ.get("DATABASE")
+    POSTGRES_USER = os.environ.get("POSTGRES_USER")
+    POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")

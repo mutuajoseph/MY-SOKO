@@ -2,7 +2,7 @@ import bs4
 from flask import Flask, render_template, redirect, request, url_for
 import os
 from pathlib import Path
-from configs.config import Development
+from configs.config import Development, Production
 from flask_sqlalchemy import SQLAlchemy
 from utils.file_upload import FileUpload
 import pandas as pd
@@ -14,7 +14,8 @@ UPLOAD_FOLDER = os.getcwd() + '/data'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-app.config.from_object(Development)
+# app.config.from_object(Development)
+app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
