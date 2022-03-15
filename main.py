@@ -162,14 +162,18 @@ def upload_data():
 def read_file():
 
     # data = FileUpload.read_file("MOCK_DATA.csv")
-    settings_dir = os.path.dirname(__file__)
-    PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
-
-    data_folder = Path(PROJECT_ROOT + '/data')
-    file_to_open = data_folder / 'MOCK_DATA.csv'
-
-    print(file_to_open)
     
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    print(BASE_DIR)
+
+    data_folder = Path(BASE_DIR + '/data')
+    file_to_open = os.path.join(data_folder, "MOCK_DATA.csv")
+
+    f = open(file_to_open)
+
+    print(f)
     
     
 

@@ -3,8 +3,8 @@ import os
 import ntpath
 from pathlib import Path
 
-settings_dir = os.path.dirname(__file__)
-PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 ALLOWED_EXTENSIONS = {'csv', 'json', 'sql', 'xml'}
 UPLOAD_FOLDER = PROJECT_ROOT + '/data'
 
