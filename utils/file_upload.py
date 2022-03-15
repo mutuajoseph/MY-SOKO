@@ -30,8 +30,11 @@ class FileUpload():
 
     # read a known file
     def read_file(filename):
+
+        settings_dir = os.path.dirname(__file__)
+        PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
         
-        data_folder = Path(os.getcwd() + '/data')
+        data_folder = Path(PROJECT_ROOT + '/data')
         file_to_open = data_folder / filename
 
         f = open(file_to_open)

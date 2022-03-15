@@ -14,8 +14,8 @@ UPLOAD_FOLDER = os.getcwd() + '/data'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# app.config.from_object(Development)
-app.config.from_object(Production)
+app.config.from_object(Development)
+# app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
@@ -162,9 +162,14 @@ def upload_data():
 def read_file():
 
     # data = FileUpload.read_file("MOCK_DATA.csv")
+    settings_dir = os.path.dirname(__file__)
+    PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
 
-    data_folder = Path(os.getcwd() + '/data')
-    file_to_open = data_folder / "dataset.xml"
+    data_folder = Path(PROJECT_ROOT + '/data')
+    file_to_open = data_folder / 'MOCK_DATA.csv'
+
+    print(file_to_open)
+    
     
     
 
