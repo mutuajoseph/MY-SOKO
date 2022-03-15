@@ -8,9 +8,9 @@ heroku => https://my-soko.herokuapp.com/
 
 ## REQUIREMENTS
 
-1 . User can upload data in .csv, .json or .xml format.
-2 . User can be able to view the data uploaded from the read file through a table.
-3 . User can perform all CRUD operations on data present in the database.
+* User can upload data in .csv, .json or .xml format.
+* User can be able to view the data uploaded from the read file through a table.
+* User can perform all CRUD operations on data present in the database.
 
 ### Prerequisites
 * flask 2.0.3 and above
