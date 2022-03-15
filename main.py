@@ -166,8 +166,6 @@ def read_file():
     data_folder = Path(os.getcwd() + '/data')
 
     print(data_folder)
-
-    file_to_open = data_folder / "dataset.xml"
     
     
 

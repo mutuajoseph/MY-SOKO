@@ -32,7 +32,7 @@ class FileUpload():
     def read_file(filename):
         
         data_folder = os.getcwd() + '/data'
-        file_to_open = data_folder / filename
+        file_to_open = os.path.join(data_folder, filename)
 
         print(file_to_open)
 
