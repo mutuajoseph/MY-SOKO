@@ -4,9 +4,8 @@ import ntpath
 from pathlib import Path
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 ALLOWED_EXTENSIONS = {'csv', 'json', 'sql', 'xml'}
-UPLOAD_FOLDER = PROJECT_ROOT + '/data'
+UPLOAD_FOLDER = os.getcwd() + '/data'
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -32,8 +31,10 @@ class FileUpload():
     # read a known file
     def read_file(filename):
         
-        data_folder = Path(PROJECT_ROOT + '/data')
+        data_folder = os.getcwd() + '/data'
         file_to_open = data_folder / filename
+
+        print(file_to_open)
 
         f = open(file_to_open)
 

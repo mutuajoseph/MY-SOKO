@@ -162,16 +162,12 @@ def upload_data():
 def read_file():
 
     # data = FileUpload.read_file("MOCK_DATA.csv")
-    
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    print("BSA", BASE_DIR)
-    data_folder = Path(BASE_DIR + '/data')
-    file_to_open = os.path.join(data_folder, "MOCK_DATA.csv")
+    data_folder = Path(os.getcwd() + '/data')
 
-    f = open(file_to_open)
+    print(data_folder)
 
-    print(f)
+    file_to_open = data_folder / "dataset.xml"
     
     
 
