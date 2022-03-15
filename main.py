@@ -165,9 +165,7 @@ def read_file():
     
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    print(BASE_DIR)
-
+    print("BSA", BASE_DIR)
     data_folder = Path(BASE_DIR + '/data')
     file_to_open = os.path.join(data_folder, "MOCK_DATA.csv")
 
