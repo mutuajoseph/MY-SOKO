@@ -1,6 +1,6 @@
 # MY SOKO APP
 =======================
-**My Soko Application** This is a simple application used to track products and analyse pdosucts profit and loss.
+**My Soko Application** This is a simple application used to track products and analyse products profit and loss.
 
 ## Hosted link
 
