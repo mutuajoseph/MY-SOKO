@@ -204,7 +204,7 @@ def update_product(id):
         print("record updated successfully")
         return redirect(url_for("products"))
 
-    return redirect(url_for('upload_file'))
+    return redirect(url_for('products'))
 
 
 # deleting a product
@@ -220,5 +220,5 @@ def deleteProduct(id):
     else:
 
         print('record not found')
-        return redirect(url_for('upload_file'))
+        return redirect(url_for('products'))
 
