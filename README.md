@@ -1,6 +1,6 @@
 # MY SOKO APP
 =======================
-**Kune Application** This is a simple application used to track products and analyse pdosucts profit and loss.
+**My Soko Application** This is a simple application used to track products and analyse pdosucts profit and loss.
 
 ## Hosted link
 
