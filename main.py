@@ -216,7 +216,7 @@ def deleteProduct(id):
 
     if delete_product:
         print('Record deleted successfully')
-        return redirect(url_for('upload_file'))
+        return redirect(url_for('products'))
     else:
 
         print('record not found')
