@@ -53,18 +53,7 @@ Flask Version:
    2.0.3 and above
 
 
-Usage
------
-
-
 ## License
 This project is licensed under the MIT License
-
-Documentation
--------------
-You can see the documentation over at **Read the Docs**
-
-Resources
--------------
 
 
