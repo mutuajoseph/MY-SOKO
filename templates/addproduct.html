@@ -2,29 +2,33 @@
 
 {% block content %}
 <form action="/add-product" method="post" style="width: 500px; margin: 4rem auto;">
-
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     <h4>Add New Product</h4>
     <p>Fill in the fields below to add a new product</p>
 
     <div class="form-group my-2">
         <label for="fullName">Product Name</label>
-        <input type="text" name="product_name"
-            class="form-control" required>
+        <input type="text" name="product_name" class="form-control" required>
     </div>
     <div class="form-group my-2">
         <label for="fullName">Quantity</label>
-        <input type="text" name="quantity"
-            class="form-control" required>
+        <input type="text" name="quantity" class="form-control" required>
     </div>
     <div class="form-group my-2">
         <label for="buying_price">Buying Price</label>
-        <input type="number" name="buying_price"
-            class="form-control" required>
+        <input type="number" name="buying_price" class="form-control" required>
     </div>
     <div class="form-group my-2">
         <label for="phone">Selling Price</label>
-        <input type="number" name="selling_price"
-            class="form-control" required>
+        <input type="number" name="selling_price" class="form-control" required>
     </div>
     <div class="form-group my-4">
         <button type="submit" class="btn btn-success">Submit</button>

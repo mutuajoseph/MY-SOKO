@@ -1,5 +1,5 @@
-import bs4
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask,render_template, redirect, request, url_for
+from flask.helpers import flash
 import os
 from pathlib import Path
 from configs.config import Development, Production
@@ -14,8 +14,8 @@ UPLOAD_FOLDER = os.getcwd() + '/data'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-app.config.from_object(Development)
-# app.config.from_object(Production)
+# app.config.from_object(Development)
+app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
@@ -47,7 +47,7 @@ def add_product():
 
         db.session.add(product)
         db.session.commit()
-        print("product added successfully")
+        flash('product added successfully', "success")
         return redirect(url_for('products'))
 
 
@@ -103,7 +103,7 @@ def upload_data():
 
                     db.session.add(product)
                     db.session.commit()
-                    print("product saved successfully")
+                flash("products saved successfully", "success")
 
                 # delete the file
 
